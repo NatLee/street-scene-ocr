@@ -1,0 +1,25 @@
+version: '3'
+
+services:
+
+    street_text_recognition:
+        container_name: street_text_recognition
+        build: .
+        restart: always
+
+        networks:
+            - web
+
+        labels:
+            - "traefik.enable=true"
+
+            - "traefik.http.services.street_text_recognition.loadbalancer.server.port=80"
+
+            - "traefik.http.routers.street_text_recognition.rule=Host(`<YOUR_DOMAIN>`)" #
+            - "traefik.http.routers.street_text_recognition.service=street_text_recognition"
+            - "traefik.http.routers.street_text_recognition.tls.certresolver=le"
+            - "traefik.http.routers.street_text_recognition.entrypoints=websecure"
+
+networks:
+    web:
+        external: true
