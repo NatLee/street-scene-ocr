@@ -1,0 +1,12 @@
+uploads/*.png
+uploads/*.jpg
+uploads/*.jpeg
+
+
+__pycache__
+
+desktop.ini
+
+.DS_Store
+
+.vscode
