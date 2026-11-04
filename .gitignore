@@ -1,12 +1,14 @@
-uploads/*.png
-uploads/*.jpg
-uploads/*.jpeg
+# Python
+__pycache__/
+*.egg-info/
+.venv/
+build/
+dist/
+.pytest_cache/
+.ruff_cache/
 
-
-__pycache__
-
+# Editors and OS
+.vscode/
+.idea/
 desktop.ini
-
 .DS_Store
-
-.vscode
