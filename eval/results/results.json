@@ -1,0 +1,2778 @@
+{
+ "min_confidence": 0.3,
+ "max_image_side": 2560,
+ "machine": {
+  "cpu": "AMD Ryzen 9 9950X 16-Core Processor",
+  "cpu_count": 32,
+  "cpus_available": 4,
+  "python": "3.12.16"
+ },
+ "versions": {
+  "easyocr": "1.7.2",
+  "torch": "2.15.0+cpu",
+  "rapidocr": "3.10.0",
+  "paddleocr": "3.7.0",
+  "paddlex": "3.7.2",
+  "onnxruntime": "1.31.1",
+  "opencv-contrib-python": "4.10.0.84"
+ },
+ "engines": {
+  "easyocr": {
+   "device": "cpu",
+   "sets": {
+    "photos": {
+     "images": 8,
+     "lines": 70,
+     "characters": 364,
+     "errors": 271,
+     "exact_lines": 8,
+     "extra_regions": 9,
+     "cer": 0.7445,
+     "cer_to_traditional": 0.7445,
+     "line_accuracy": 0.1143,
+     "median_ms": 4779.5,
+     "mean_ms": 5209.0,
+     "images_detail": [
+      {
+       "image": "aan-migao-night.jpg",
+       "ms": 4435.1,
+       "extra_regions": 0,
+       "lines": [
+        {
+         "expected": "阿岸米糕",
+         "read": "",
+         "errors": 4,
+         "characters": 4
+        },
+        {
+         "expected": "鹹米糕20",
+         "read": "米糕",
+         "errors": 3,
+         "characters": 5
+        },
+        {
+         "expected": "5-2259359",
+         "read": "52259359",
+         "errors": 0,
+         "characters": 8
+        },
+        {
+         "expected": "文化路老張米糕",
+         "read": "汶化路老張米糕",
+         "errors": 1,
+         "characters": 7
+        },
+        {
+         "expected": "賀茶堂",
+         "read": "",
+         "errors": 3,
+         "characters": 3
+        },
+        {
+         "expected": "鮮泡手作茶",
+         "read": "",
+         "errors": 5,
+         "characters": 5
+        },
+        {
+         "expected": "賀茶堂",
+         "read": "",
+         "errors": 3,
+         "characters": 3
+        },
+        {
+         "expected": "茶拿鐵",
+         "read": "享鐵",
+         "errors": 2,
+         "characters": 3
+        },
+        {
+         "expected": "Tea Latte",
+         "read": "TeaLatte",
+         "errors": 0,
+         "characters": 8
+        },
+        {
+         "expected": "MAČU",
+         "read": "MACU",
+         "errors": 1,
+         "characters": 4
+        }
+       ]
+      },
+      {
+       "image": "guixian-village-sign.jpg",
+       "ms": 3575.0,
+       "extra_regions": 0,
+       "lines": [
+        {
+         "expected": "住貴賢 人富貴 子女賢",
+         "read": "",
+         "errors": 9,
+         "characters": 9
+        },
+        {
+         "expected": "貴賢里辦公處 敬製",
+         "read": "",
+         "errors": 8,
+         "characters": 8
+        }
+       ]
+      },
+      {
+       "image": "night-road-signs.jpg",
+       "ms": 5982.2,
+       "extra_regions": 2,
+       "lines": [
+        {
+         "expected": "蝦味鮮",
+         "read": "",
+         "errors": 3,
+         "characters": 3
+        },
+        {
+         "expected": "活蝦料理",
+         "read": "活蝦料理",
+         "errors": 0,
+         "characters": 4
+        },
+        {
+         "expected": "外送專線",
+         "read": "",
+         "errors": 4,
+         "characters": 4
+        },
+        {
+         "expected": "0973-508271",
+         "read": "0973-508271",
+         "errors": 0,
+         "characters": 10
+        },
+        {
+         "expected": "禁止酒駕未滿",
+         "read": "止酒",
+         "errors": 4,
+         "characters": 6
+        },
+        {
+         "expected": "十八歲禁止飲酒",
+         "read": "",
+         "errors": 7,
+         "characters": 7
+        },
+        {
+         "expected": "友華賓館",
+         "read": "",
+         "errors": 4,
+         "characters": 4
+        },
+        {
+         "expected": "初來炸道",
+         "read": "",
+         "errors": 4,
+         "characters": 4
+        },
+        {
+         "expected": "初來炸道",
+         "read": "",
+         "errors": 4,
+         "characters": 4
+        },
+        {
+         "expected": "台灣代駕",
+         "read": "",
+         "errors": 4,
+         "characters": 4
+        }
+       ]
+      },
+      {
+       "image": "noodle-shop-21.jpg",
+       "ms": 4925.4,
+       "extra_regions": 0,
+       "lines": [
+        {
+         "expected": "21工房",
+         "read": "2l工房",
+         "errors": 1,
+         "characters": 4
+        },
+        {
+         "expected": "自家製の天然好麵",
+         "read": "自家製0天然好麵",
+         "errors": 1,
+         "characters": 8
+        },
+        {
+         "expected": "鐵道模型",
+         "read": "",
+         "errors": 4,
+         "characters": 4
+        },
+        {
+         "expected": "M.J.",
+         "read": "",
+         "errors": 2,
+         "characters": 2
+        },
+        {
+         "expected": "敦美苑",
+         "read": "",
+         "errors": 3,
+         "characters": 3
+        },
+        {
+         "expected": "21工房",
+         "read": "",
+         "errors": 4,
+         "characters": 4
+        },
+        {
+         "expected": "21工房",
+         "read": "",
+         "errors": 4,
+         "characters": 4
+        },
+        {
+         "expected": "21工房",
+         "read": "",
+         "errors": 4,
+         "characters": 4
+        },
+        {
+         "expected": "WORKER HOUSE",
+         "read": "",
+         "errors": 11,
+         "characters": 11
+        },
+        {
+         "expected": "嚴選天然食材",
+         "read": "",
+         "errors": 6,
+         "characters": 6
+        },
+        {
+         "expected": "保證不加防腐劑",
+         "read": "",
+         "errors": 7,
+         "characters": 7
+        },
+        {
+         "expected": "天然手工涼麵",
+         "read": "",
+         "errors": 6,
+         "characters": 6
+        },
+        {
+         "expected": "HAND-MADE CHILLED NOODLES",
+         "read": "",
+         "errors": 22,
+         "characters": 22
+        },
+        {
+         "expected": "美味·健康",
+         "read": "",
+         "errors": 4,
+         "characters": 4
+        },
+        {
+         "expected": "伸春商店",
+         "read": "",
+         "errors": 4,
+         "characters": 4
+        },
+        {
+         "expected": "語心扉",
+         "read": "",
+         "errors": 3,
+         "characters": 3
+        },
+        {
+         "expected": "人才招募",
+         "read": "",
+         "errors": 4,
+         "characters": 4
+        }
+       ]
+      },
+      {
+       "image": "sheng-chun-shop.jpg",
+       "ms": 5598.1,
+       "extra_regions": 2,
+       "lines": [
+        {
+         "expected": "伸春商店",
+         "read": "",
+         "errors": 4,
+         "characters": 4
+        },
+        {
+         "expected": "伸春商店",
+         "read": "",
+         "errors": 4,
+         "characters": 4
+        },
+        {
+         "expected": "環保袋",
+         "read": "",
+         "errors": 3,
+         "characters": 3
+        },
+        {
+         "expected": "菸酒",
+         "read": "酒",
+         "errors": 1,
+         "characters": 2
+        },
+        {
+         "expected": "雜貨",
+         "read": "雜貸",
+         "errors": 1,
+         "characters": 2
+        },
+        {
+         "expected": "雨傘.雨衣",
+         "read": "",
+         "errors": 4,
+         "characters": 4
+        },
+        {
+         "expected": "環保袋",
+         "read": "",
+         "errors": 3,
+         "characters": 3
+        },
+        {
+         "expected": "菸酒",
+         "read": "",
+         "errors": 2,
+         "characters": 2
+        },
+        {
+         "expected": "雜貨",
+         "read": "雜",
+         "errors": 1,
+         "characters": 2
+        },
+        {
+         "expected": "雨傘.雨衣",
+         "read": "",
+         "errors": 4,
+         "characters": 4
+        },
+        {
+         "expected": "健康素食",
+         "read": "健康素食",
+         "errors": 0,
+         "characters": 4
+        },
+        {
+         "expected": "自然飲食 五穀蔬菜餐",
+         "read": "",
+         "errors": 9,
+         "characters": 9
+        }
+       ]
+      },
+      {
+       "image": "street-name-signs.jpg",
+       "ms": 3412.2,
+       "extra_regions": 0,
+       "lines": [
+        {
+         "expected": "富錦街",
+         "read": "",
+         "errors": 3,
+         "characters": 3
+        },
+        {
+         "expected": "三民路",
+         "read": "",
+         "errors": 3,
+         "characters": 3
+        }
+       ]
+      },
+      {
+       "image": "taipei-street-signs.jpg",
+       "ms": 9110.3,
+       "extra_regions": 5,
+       "lines": [
+        {
+         "expected": "二哥の店",
+         "read": "母0店",
+         "errors": 3,
+         "characters": 4
+        },
+        {
+         "expected": "二哥の店",
+         "read": "",
+         "errors": 4,
+         "characters": 4
+        },
+        {
+         "expected": "優質餐盒",
+         "read": "",
+         "errors": 4,
+         "characters": 4
+        },
+        {
+         "expected": "一律60元",
+         "read": "一律0完",
+         "errors": 2,
+         "characters": 5
+        },
+        {
+         "expected": "8985-5448",
+         "read": "8985-5448",
+         "errors": 0,
+         "characters": 8
+        },
+        {
+         "expected": "小火鍋",
+         "read": "小火鍋",
+         "errors": 0,
+         "characters": 3
+        },
+        {
+         "expected": "2986-6996",
+         "read": "*:2986-6996",
+         "errors": 0,
+         "characters": 8
+        },
+        {
+         "expected": "全館便當",
+         "read": "",
+         "errors": 4,
+         "characters": 4
+        },
+        {
+         "expected": "本店已投保1000萬產品責任險，敬請安",
+         "read": "",
+         "errors": 18,
+         "characters": 18
+        },
+        {
+         "expected": "建",
+         "read": "",
+         "errors": 1,
+         "characters": 1
+        },
+        {
+         "expected": "上紅",
+         "read": "",
+         "errors": 2,
+         "characters": 2
+        },
+        {
+         "expected": "小火鍋",
+         "read": "",
+         "errors": 3,
+         "characters": 3
+        }
+       ]
+      },
+      {
+       "image": "teppanyaki-sign.jpg",
+       "ms": 4633.6,
+       "extra_regions": 0,
+       "lines": [
+        {
+         "expected": "千繽鐵板燒",
+         "read": "",
+         "errors": 5,
+         "characters": 5
+        },
+        {
+         "expected": "TEL:2749-5377",
+         "read": "TE[:2749-5371",
+         "errors": 2,
+         "characters": 11
+        },
+        {
+         "expected": "千繽鐵板燒",
+         "read": "",
+         "errors": 5,
+         "characters": 5
+        },
+        {
+         "expected": "平安就是",
+         "read": "",
+         "errors": 4,
+         "characters": 4
+        },
+        {
+         "expected": "商業午餐 牛.羊.豬.花枝",
+         "read": "",
+         "errors": 9,
+         "characters": 9
+        }
+       ]
+      }
+     ]
+    },
+    "synthetic": {
+     "images": 24,
+     "lines": 40,
+     "characters": 204,
+     "errors": 30,
+     "exact_lines": 30,
+     "extra_regions": 0,
+     "cer": 0.1471,
+     "cer_to_traditional": 0.1471,
+     "line_accuracy": 0.75,
+     "median_ms": 1404.6,
+     "mean_ms": 1397.2,
+     "images_detail": [
+      {
+       "image": "sign-00.jpg",
+       "ms": 1464.7,
+       "extra_regions": 0,
+       "lines": [
+        {
+         "expected": "臺灣小吃館",
+         "read": "臺灣小吃館",
+         "errors": 0,
+         "characters": 5
+        }
+       ]
+      },
+      {
+       "image": "sign-01.jpg",
+       "ms": 1320.8,
+       "extra_regions": 0,
+       "lines": [
+        {
+         "expected": "第二停車場",
+         "read": "第二停車場",
+         "errors": 0,
+         "characters": 5
+        },
+        {
+         "expected": "PARKING",
+         "read": "PARKING",
+         "errors": 0,
+         "characters": 7
+        }
+       ]
+      },
+      {
+       "image": "sign-02.jpg",
+       "ms": 1353.5,
+       "extra_regions": 0,
+       "lines": [
+        {
+         "expected": "理髮廳",
+         "read": "",
+         "errors": 3,
+         "characters": 3
+        },
+        {
+         "expected": "Coffee & Tea",
+         "read": "Coffee& Tea",
+         "errors": 0,
+         "characters": 9
+        }
+       ]
+      },
+      {
+       "image": "sign-03.jpg",
+       "ms": 1102.0,
+       "extra_regions": 0,
+       "lines": [
+        {
+         "expected": "樂聲鐘錶眼鏡",
+         "read": "樂聲鐘錶眼鏡",
+         "errors": 0,
+         "characters": 6
+        }
+       ]
+      },
+      {
+       "image": "sign-04.jpg",
+       "ms": 1313.8,
+       "extra_regions": 0,
+       "lines": [
+        {
+         "expected": "鮮榨果汁",
+         "read": "鮮榨果汁",
+         "errors": 0,
+         "characters": 4
+        }
+       ]
+      },
+      {
+       "image": "sign-05.jpg",
+       "ms": 1613.9,
+       "extra_regions": 0,
+       "lines": [
+        {
+         "expected": "鐵板燒",
+         "read": "",
+         "errors": 3,
+         "characters": 3
+        },
+        {
+         "expected": "巷口滷味",
+         "read": "巷口滷味",
+         "errors": 0,
+         "characters": 4
+        },
+        {
+         "expected": "外送專線 2345-6789",
+         "read": "外送專線 2345-6789",
+         "errors": 0,
+         "characters": 12
+        }
+       ]
+      },
+      {
+       "image": "sign-06.jpg",
+       "ms": 1257.7,
+       "extra_regions": 0,
+       "lines": [
+        {
+         "expected": "老街豆花",
+         "read": "老街豆花",
+         "errors": 0,
+         "characters": 4
+        }
+       ]
+      },
+      {
+       "image": "sign-07.jpg",
+       "ms": 1405.3,
+       "extra_regions": 0,
+       "lines": [
+        {
+         "expected": "鹽酥雞",
+         "read": "鹽酥雞",
+         "errors": 0,
+         "characters": 3
+        },
+        {
+         "expected": "宵夜場",
+         "read": "宵夜場",
+         "errors": 0,
+         "characters": 3
+        }
+       ]
+      },
+      {
+       "image": "sign-08.jpg",
+       "ms": 1751.1,
+       "extra_regions": 0,
+       "lines": [
+        {
+         "expected": "中醫診所",
+         "read": "",
+         "errors": 4,
+         "characters": 4
+        },
+        {
+         "expected": "冷氣維修",
+         "read": "冷氣維修",
+         "errors": 0,
+         "characters": 4
+        },
+        {
+         "expected": "安裝 保養 買賣",
+         "read": "安裝保養買賣",
+         "errors": 0,
+         "characters": 6
+        }
+       ]
+      },
+      {
+       "image": "sign-09.jpg",
+       "ms": 1434.8,
+       "extra_regions": 0,
+       "lines": [
+        {
+         "expected": "優質二手書",
+         "read": "優質二手書",
+         "errors": 0,
+         "characters": 5
+        }
+       ]
+      },
+      {
+       "image": "sign-10.jpg",
+       "ms": 1294.6,
+       "extra_regions": 0,
+       "lines": [
+        {
+         "expected": "藝術體驗教室",
+         "read": "藝術體驗教室",
+         "errors": 0,
+         "characters": 6
+        }
+       ]
+      },
+      {
+       "image": "sign-11.jpg",
+       "ms": 1443.7,
+       "extra_regions": 0,
+       "lines": [
+        {
+         "expected": "當舖",
+         "read": "",
+         "errors": 2,
+         "characters": 2
+        },
+        {
+         "expected": "幸福早餐店",
+         "read": "幸福早餐店",
+         "errors": 0,
+         "characters": 5
+        }
+       ]
+      },
+      {
+       "image": "sign-12.jpg",
+       "ms": 1536.0,
+       "extra_regions": 0,
+       "lines": [
+        {
+         "expected": "請勿停車",
+         "read": "請勿停車",
+         "errors": 0,
+         "characters": 4
+        }
+       ]
+      },
+      {
+       "image": "sign-13.jpg",
+       "ms": 1604.6,
+       "extra_regions": 0,
+       "lines": [
+        {
+         "expected": "阿明牛肉麵",
+         "read": "阿明牛肉麵",
+         "errors": 0,
+         "characters": 5
+        },
+        {
+         "expected": "營業時間 10:00-21:00",
+         "read": "營業時間 10:00-21:00",
+         "errors": 0,
+         "characters": 12
+        }
+       ]
+      },
+      {
+       "image": "sign-14.jpg",
+       "ms": 1506.3,
+       "extra_regions": 0,
+       "lines": [
+        {
+         "expected": "書法教室",
+         "read": "",
+         "errors": 4,
+         "characters": 4
+        },
+        {
+         "expected": "福氣便當",
+         "read": "福氣便當",
+         "errors": 0,
+         "characters": 4
+        }
+       ]
+      },
+      {
+       "image": "sign-15.jpg",
+       "ms": 1363.4,
+       "extra_regions": 0,
+       "lines": [
+        {
+         "expected": "豐年五金行",
+         "read": "豐年五金行",
+         "errors": 0,
+         "characters": 5
+        }
+       ]
+      },
+      {
+       "image": "sign-16.jpg",
+       "ms": 1361.4,
+       "extra_regions": 0,
+       "lines": [
+        {
+         "expected": "臺灣小吃館",
+         "read": "臺灣小吃館",
+         "errors": 0,
+         "characters": 5
+        }
+       ]
+      },
+      {
+       "image": "sign-17.jpg",
+       "ms": 1586.5,
+       "extra_regions": 0,
+       "lines": [
+        {
+         "expected": "旅社",
+         "read": "",
+         "errors": 2,
+         "characters": 2
+        },
+        {
+         "expected": "第二停車場",
+         "read": "第二停車場",
+         "errors": 0,
+         "characters": 5
+        },
+        {
+         "expected": "PARKING",
+         "read": "PARKING",
+         "errors": 0,
+         "characters": 7
+        }
+       ]
+      },
+      {
+       "image": "sign-18.jpg",
+       "ms": 1565.3,
+       "extra_regions": 0,
+       "lines": [
+        {
+         "expected": "Coffee & Tea",
+         "read": "Coffee& Tea",
+         "errors": 0,
+         "characters": 9
+        }
+       ]
+      },
+      {
+       "image": "sign-19.jpg",
+       "ms": 1519.2,
+       "extra_regions": 0,
+       "lines": [
+        {
+         "expected": "樂聲鐘錶眼鏡",
+         "read": "樂聲鐘錶眼鏡",
+         "errors": 0,
+         "characters": 6
+        }
+       ]
+      },
+      {
+       "image": "sign-20.jpg",
+       "ms": 1403.9,
+       "extra_regions": 0,
+       "lines": [
+        {
+         "expected": "理髮廳",
+         "read": "",
+         "errors": 3,
+         "characters": 3
+        },
+        {
+         "expected": "鮮榨果汁",
+         "read": "鮮榨果汁",
+         "errors": 0,
+         "characters": 4
+        }
+       ]
+      },
+      {
+       "image": "sign-21.jpg",
+       "ms": 1180.4,
+       "extra_regions": 0,
+       "lines": [
+        {
+         "expected": "巷口滷味",
+         "read": "巷口滷味",
+         "errors": 0,
+         "characters": 4
+        },
+        {
+         "expected": "外送專線 2345-6789",
+         "read": "外送專線 2345-6789",
+         "errors": 0,
+         "characters": 12
+        }
+       ]
+      },
+      {
+       "image": "sign-22.jpg",
+       "ms": 1000.3,
+       "extra_regions": 0,
+       "lines": [
+        {
+         "expected": "老街豆花",
+         "read": "老街豆花",
+         "errors": 0,
+         "characters": 4
+        }
+       ]
+      },
+      {
+       "image": "sign-23.jpg",
+       "ms": 1150.3,
+       "extra_regions": 0,
+       "lines": [
+        {
+         "expected": "鐵板燒",
+         "read": "",
+         "errors": 3,
+         "characters": 3
+        },
+        {
+         "expected": "鹽酥雞",
+         "read": "",
+         "errors": 3,
+         "characters": 3
+        },
+        {
+         "expected": "宵夜場",
+         "read": "",
+         "errors": 3,
+         "characters": 3
+        }
+       ]
+      }
+     ]
+    }
+   }
+  },
+  "rapidocr": {
+   "device": "cpu",
+   "sets": {
+    "photos": {
+     "images": 8,
+     "lines": 70,
+     "characters": 364,
+     "errors": 67,
+     "exact_lines": 37,
+     "extra_regions": 42,
+     "cer": 0.1841,
+     "cer_to_traditional": 0.1566,
+     "line_accuracy": 0.5286,
+     "median_ms": 348.7,
+     "mean_ms": 356.9,
+     "images_detail": [
+      {
+       "image": "aan-migao-night.jpg",
+       "ms": 303.3,
+       "extra_regions": 2,
+       "lines": [
+        {
+         "expected": "阿岸米糕",
+         "read": "防岸未糕",
+         "errors": 2,
+         "characters": 4
+        },
+        {
+         "expected": "鹹米糕20",
+         "read": "【鹹米糕",
+         "errors": 2,
+         "characters": 5
+        },
+        {
+         "expected": "5-2259359",
+         "read": "5-2259359",
+         "errors": 0,
+         "characters": 8
+        },
+        {
+         "expected": "文化路老張米糕",
+         "read": "文化路老張米糕",
+         "errors": 0,
+         "characters": 7
+        },
+        {
+         "expected": "賀茶堂",
+         "read": "2賀茶堂",
+         "errors": 1,
+         "characters": 3
+        },
+        {
+         "expected": "鮮泡手作茶",
+         "read": "鲜泡手作茶",
+         "errors": 1,
+         "characters": 5
+        },
+        {
+         "expected": "賀茶堂",
+         "read": "贺茶堂",
+         "errors": 1,
+         "characters": 3
+        },
+        {
+         "expected": "茶拿鐵",
+         "read": "茶拿鐵",
+         "errors": 0,
+         "characters": 3
+        },
+        {
+         "expected": "Tea Latte",
+         "read": "Tea Latte",
+         "errors": 0,
+         "characters": 8
+        },
+        {
+         "expected": "MAČU",
+         "read": "MAČU",
+         "errors": 0,
+         "characters": 4
+        }
+       ]
+      },
+      {
+       "image": "guixian-village-sign.jpg",
+       "ms": 262.1,
+       "extra_regions": 0,
+       "lines": [
+        {
+         "expected": "住貴賢 人富貴 子女賢",
+         "read": "佳贵賢人富贵子女賢",
+         "errors": 3,
+         "characters": 9
+        },
+        {
+         "expected": "貴賢里辦公處 敬製",
+         "read": "贵賢里辦公處敬製",
+         "errors": 1,
+         "characters": 8
+        }
+       ]
+      },
+      {
+       "image": "night-road-signs.jpg",
+       "ms": 419.5,
+       "extra_regions": 8,
+       "lines": [
+        {
+         "expected": "蝦味鮮",
+         "read": "蝦味鲜",
+         "errors": 1,
+         "characters": 3
+        },
+        {
+         "expected": "活蝦料理",
+         "read": "活蝦料理",
+         "errors": 0,
+         "characters": 4
+        },
+        {
+         "expected": "外送專線",
+         "read": "外送專線",
+         "errors": 0,
+         "characters": 4
+        },
+        {
+         "expected": "0973-508271",
+         "read": "0973-508271",
+         "errors": 0,
+         "characters": 10
+        },
+        {
+         "expected": "禁止酒駕未滿",
+         "read": "禁止酒駕未满",
+         "errors": 1,
+         "characters": 6
+        },
+        {
+         "expected": "十八歲禁止飲酒",
+         "read": "十八歲禁止飲酒",
+         "errors": 0,
+         "characters": 7
+        },
+        {
+         "expected": "友華賓館",
+         "read": "友華宾馆",
+         "errors": 2,
+         "characters": 4
+        },
+        {
+         "expected": "初來炸道",
+         "read": "初來炸道108",
+         "errors": 3,
+         "characters": 4
+        },
+        {
+         "expected": "初來炸道",
+         "read": "初来炸道",
+         "errors": 1,
+         "characters": 4
+        },
+        {
+         "expected": "台灣代駕",
+         "read": "台灣代属",
+         "errors": 1,
+         "characters": 4
+        }
+       ]
+      },
+      {
+       "image": "noodle-shop-21.jpg",
+       "ms": 400.5,
+       "extra_regions": 1,
+       "lines": [
+        {
+         "expected": "21工房",
+         "read": "21工房",
+         "errors": 0,
+         "characters": 4
+        },
+        {
+         "expected": "自家製の天然好麵",
+         "read": "自家製の天然好麵",
+         "errors": 0,
+         "characters": 8
+        },
+        {
+         "expected": "鐵道模型",
+         "read": "鐵道模型",
+         "errors": 0,
+         "characters": 4
+        },
+        {
+         "expected": "M.J.",
+         "read": "",
+         "errors": 2,
+         "characters": 2
+        },
+        {
+         "expected": "敦美苑",
+         "read": "敦美苑",
+         "errors": 0,
+         "characters": 3
+        },
+        {
+         "expected": "21工房",
+         "read": "21工房",
+         "errors": 0,
+         "characters": 4
+        },
+        {
+         "expected": "21工房",
+         "read": "21工房",
+         "errors": 0,
+         "characters": 4
+        },
+        {
+         "expected": "21工房",
+         "read": "21工房",
+         "errors": 0,
+         "characters": 4
+        },
+        {
+         "expected": "WORKER HOUSE",
+         "read": "WORER HOUsE",
+         "errors": 1,
+         "characters": 11
+        },
+        {
+         "expected": "嚴選天然食材",
+         "read": "",
+         "errors": 6,
+         "characters": 6
+        },
+        {
+         "expected": "保證不加防腐劑",
+         "read": "",
+         "errors": 7,
+         "characters": 7
+        },
+        {
+         "expected": "天然手工涼麵",
+         "read": "天然手工凉麵",
+         "errors": 1,
+         "characters": 6
+        },
+        {
+         "expected": "HAND-MADE CHILLED NOODLES",
+         "read": "HAND-MADE CHILLED NOODLES",
+         "errors": 0,
+         "characters": 22
+        },
+        {
+         "expected": "美味·健康",
+         "read": "美味·健康",
+         "errors": 0,
+         "characters": 4
+        },
+        {
+         "expected": "伸春商店",
+         "read": "伸春商店",
+         "errors": 0,
+         "characters": 4
+        },
+        {
+         "expected": "語心扉",
+         "read": "語心扇",
+         "errors": 1,
+         "characters": 3
+        },
+        {
+         "expected": "人才招募",
+         "read": "人才招募",
+         "errors": 0,
+         "characters": 4
+        }
+       ]
+      },
+      {
+       "image": "sheng-chun-shop.jpg",
+       "ms": 369.0,
+       "extra_regions": 10,
+       "lines": [
+        {
+         "expected": "伸春商店",
+         "read": "伸春商店",
+         "errors": 0,
+         "characters": 4
+        },
+        {
+         "expected": "伸春商店",
+         "read": "伸春商店",
+         "errors": 0,
+         "characters": 4
+        },
+        {
+         "expected": "環保袋",
+         "read": "環保袋",
+         "errors": 0,
+         "characters": 3
+        },
+        {
+         "expected": "菸酒",
+         "read": "菸酒",
+         "errors": 0,
+         "characters": 2
+        },
+        {
+         "expected": "雜貨",
+         "read": "雜貨",
+         "errors": 0,
+         "characters": 2
+        },
+        {
+         "expected": "雨傘.雨衣",
+         "read": "2雨拿雨衣",
+         "errors": 2,
+         "characters": 4
+        },
+        {
+         "expected": "環保袋",
+         "read": "",
+         "errors": 3,
+         "characters": 3
+        },
+        {
+         "expected": "菸酒",
+         "read": "袋酒货",
+         "errors": 2,
+         "characters": 2
+        },
+        {
+         "expected": "雜貨",
+         "read": "",
+         "errors": 2,
+         "characters": 2
+        },
+        {
+         "expected": "雨傘.雨衣",
+         "read": "",
+         "errors": 4,
+         "characters": 4
+        },
+        {
+         "expected": "健康素食",
+         "read": "健康素食",
+         "errors": 0,
+         "characters": 4
+        },
+        {
+         "expected": "自然飲食 五穀蔬菜餐",
+         "read": "自然飲食五款蔬菜餐",
+         "errors": 1,
+         "characters": 9
+        }
+       ]
+      },
+      {
+       "image": "street-name-signs.jpg",
+       "ms": 212.3,
+       "extra_regions": 0,
+       "lines": [
+        {
+         "expected": "富錦街",
+         "read": "富錦街",
+         "errors": 0,
+         "characters": 3
+        },
+        {
+         "expected": "三民路",
+         "read": "三民路",
+         "errors": 0,
+         "characters": 3
+        }
+       ]
+      },
+      {
+       "image": "taipei-street-signs.jpg",
+       "ms": 560.0,
+       "extra_regions": 20,
+       "lines": [
+        {
+         "expected": "二哥の店",
+         "read": "哥の店",
+         "errors": 1,
+         "characters": 4
+        },
+        {
+         "expected": "二哥の店",
+         "read": "二哥の店",
+         "errors": 0,
+         "characters": 4
+        },
+        {
+         "expected": "優質餐盒",
+         "read": "優質餐盒",
+         "errors": 0,
+         "characters": 4
+        },
+        {
+         "expected": "一律60元",
+         "read": "一律60元",
+         "errors": 0,
+         "characters": 5
+        },
+        {
+         "expected": "8985-5448",
+         "read": "8985-5448",
+         "errors": 0,
+         "characters": 8
+        },
+        {
+         "expected": "小火鍋",
+         "read": "小火鍋",
+         "errors": 0,
+         "characters": 3
+        },
+        {
+         "expected": "2986-6996",
+         "read": "外线：2986-6996",
+         "errors": 2,
+         "characters": 8
+        },
+        {
+         "expected": "全館便當",
+         "read": "全館便菌",
+         "errors": 1,
+         "characters": 4
+        },
+        {
+         "expected": "本店已投保1000萬產品責任險，敬請安",
+         "read": "本店已投保1000萬產品責任險，敬請",
+         "errors": 1,
+         "characters": 18
+        },
+        {
+         "expected": "建",
+         "read": "建1",
+         "errors": 1,
+         "characters": 1
+        },
+        {
+         "expected": "上紅",
+         "read": "式",
+         "errors": 2,
+         "characters": 2
+        },
+        {
+         "expected": "小火鍋",
+         "read": "小火鍋",
+         "errors": 0,
+         "characters": 3
+        }
+       ]
+      },
+      {
+       "image": "teppanyaki-sign.jpg",
+       "ms": 328.4,
+       "extra_regions": 1,
+       "lines": [
+        {
+         "expected": "千繽鐵板燒",
+         "read": "千繽鐵板燒",
+         "errors": 0,
+         "characters": 5
+        },
+        {
+         "expected": "TEL:2749-5377",
+         "read": "TEL:2749-5377",
+         "errors": 0,
+         "characters": 11
+        },
+        {
+         "expected": "千繽鐵板燒",
+         "read": "干價戴板烧",
+         "errors": 4,
+         "characters": 5
+        },
+        {
+         "expected": "平安就是",
+         "read": "平安就是",
+         "errors": 0,
+         "characters": 4
+        },
+        {
+         "expected": "商業午餐 牛.羊.豬.花枝",
+         "read": "商業午餐牛羊",
+         "errors": 3,
+         "characters": 9
+        }
+       ]
+      }
+     ]
+    },
+    "synthetic": {
+     "images": 24,
+     "lines": 40,
+     "characters": 204,
+     "errors": 0,
+     "exact_lines": 40,
+     "extra_regions": 0,
+     "cer": 0.0,
+     "cer_to_traditional": 0.0,
+     "line_accuracy": 1.0,
+     "median_ms": 189.8,
+     "mean_ms": 187.6,
+     "images_detail": [
+      {
+       "image": "sign-00.jpg",
+       "ms": 170.5,
+       "extra_regions": 0,
+       "lines": [
+        {
+         "expected": "臺灣小吃館",
+         "read": "臺灣小吃館",
+         "errors": 0,
+         "characters": 5
+        }
+       ]
+      },
+      {
+       "image": "sign-01.jpg",
+       "ms": 185.5,
+       "extra_regions": 0,
+       "lines": [
+        {
+         "expected": "第二停車場",
+         "read": "第二停車場",
+         "errors": 0,
+         "characters": 5
+        },
+        {
+         "expected": "PARKING",
+         "read": "PARKING",
+         "errors": 0,
+         "characters": 7
+        }
+       ]
+      },
+      {
+       "image": "sign-02.jpg",
+       "ms": 230.0,
+       "extra_regions": 0,
+       "lines": [
+        {
+         "expected": "理髮廳",
+         "read": "理髮廳",
+         "errors": 0,
+         "characters": 3
+        },
+        {
+         "expected": "Coffee & Tea",
+         "read": "Coffee & Tea",
+         "errors": 0,
+         "characters": 9
+        }
+       ]
+      },
+      {
+       "image": "sign-03.jpg",
+       "ms": 191.4,
+       "extra_regions": 0,
+       "lines": [
+        {
+         "expected": "樂聲鐘錶眼鏡",
+         "read": "樂聲鐘錶眼鏡",
+         "errors": 0,
+         "characters": 6
+        }
+       ]
+      },
+      {
+       "image": "sign-04.jpg",
+       "ms": 211.0,
+       "extra_regions": 0,
+       "lines": [
+        {
+         "expected": "鮮榨果汁",
+         "read": "鮮榨果汁",
+         "errors": 0,
+         "characters": 4
+        }
+       ]
+      },
+      {
+       "image": "sign-05.jpg",
+       "ms": 201.0,
+       "extra_regions": 0,
+       "lines": [
+        {
+         "expected": "鐵板燒",
+         "read": "鐵板燒",
+         "errors": 0,
+         "characters": 3
+        },
+        {
+         "expected": "巷口滷味",
+         "read": "巷口滷味",
+         "errors": 0,
+         "characters": 4
+        },
+        {
+         "expected": "外送專線 2345-6789",
+         "read": "外送專線2345-6789",
+         "errors": 0,
+         "characters": 12
+        }
+       ]
+      },
+      {
+       "image": "sign-06.jpg",
+       "ms": 167.5,
+       "extra_regions": 0,
+       "lines": [
+        {
+         "expected": "老街豆花",
+         "read": "老街豆花",
+         "errors": 0,
+         "characters": 4
+        }
+       ]
+      },
+      {
+       "image": "sign-07.jpg",
+       "ms": 190.0,
+       "extra_regions": 0,
+       "lines": [
+        {
+         "expected": "鹽酥雞",
+         "read": "鹽酥雞",
+         "errors": 0,
+         "characters": 3
+        },
+        {
+         "expected": "宵夜場",
+         "read": "宵夜場",
+         "errors": 0,
+         "characters": 3
+        }
+       ]
+      },
+      {
+       "image": "sign-08.jpg",
+       "ms": 173.1,
+       "extra_regions": 0,
+       "lines": [
+        {
+         "expected": "中醫診所",
+         "read": "中醫診所",
+         "errors": 0,
+         "characters": 4
+        },
+        {
+         "expected": "冷氣維修",
+         "read": "冷氣維修",
+         "errors": 0,
+         "characters": 4
+        },
+        {
+         "expected": "安裝 保養 買賣",
+         "read": "安裝保養買賣",
+         "errors": 0,
+         "characters": 6
+        }
+       ]
+      },
+      {
+       "image": "sign-09.jpg",
+       "ms": 183.8,
+       "extra_regions": 0,
+       "lines": [
+        {
+         "expected": "優質二手書",
+         "read": "優質二手書",
+         "errors": 0,
+         "characters": 5
+        }
+       ]
+      },
+      {
+       "image": "sign-10.jpg",
+       "ms": 191.1,
+       "extra_regions": 0,
+       "lines": [
+        {
+         "expected": "藝術體驗教室",
+         "read": "藝術體驗教室",
+         "errors": 0,
+         "characters": 6
+        }
+       ]
+      },
+      {
+       "image": "sign-11.jpg",
+       "ms": 183.7,
+       "extra_regions": 0,
+       "lines": [
+        {
+         "expected": "當舖",
+         "read": "當舖",
+         "errors": 0,
+         "characters": 2
+        },
+        {
+         "expected": "幸福早餐店",
+         "read": "幸福早餐店",
+         "errors": 0,
+         "characters": 5
+        }
+       ]
+      },
+      {
+       "image": "sign-12.jpg",
+       "ms": 193.2,
+       "extra_regions": 0,
+       "lines": [
+        {
+         "expected": "請勿停車",
+         "read": "請勿停車",
+         "errors": 0,
+         "characters": 4
+        }
+       ]
+      },
+      {
+       "image": "sign-13.jpg",
+       "ms": 194.1,
+       "extra_regions": 0,
+       "lines": [
+        {
+         "expected": "阿明牛肉麵",
+         "read": "阿明牛肉麵",
+         "errors": 0,
+         "characters": 5
+        },
+        {
+         "expected": "營業時間 10:00-21:00",
+         "read": "營業時間10:00-21:00",
+         "errors": 0,
+         "characters": 12
+        }
+       ]
+      },
+      {
+       "image": "sign-14.jpg",
+       "ms": 199.9,
+       "extra_regions": 0,
+       "lines": [
+        {
+         "expected": "書法教室",
+         "read": "書法教室",
+         "errors": 0,
+         "characters": 4
+        },
+        {
+         "expected": "福氣便當",
+         "read": "福氣便當",
+         "errors": 0,
+         "characters": 4
+        }
+       ]
+      },
+      {
+       "image": "sign-15.jpg",
+       "ms": 174.5,
+       "extra_regions": 0,
+       "lines": [
+        {
+         "expected": "豐年五金行",
+         "read": "豐年五金行",
+         "errors": 0,
+         "characters": 5
+        }
+       ]
+      },
+      {
+       "image": "sign-16.jpg",
+       "ms": 171.2,
+       "extra_regions": 0,
+       "lines": [
+        {
+         "expected": "臺灣小吃館",
+         "read": "臺灣小吃館",
+         "errors": 0,
+         "characters": 5
+        }
+       ]
+      },
+      {
+       "image": "sign-17.jpg",
+       "ms": 189.6,
+       "extra_regions": 0,
+       "lines": [
+        {
+         "expected": "旅社",
+         "read": "旅社",
+         "errors": 0,
+         "characters": 2
+        },
+        {
+         "expected": "第二停車場",
+         "read": "第二停車場",
+         "errors": 0,
+         "characters": 5
+        },
+        {
+         "expected": "PARKING",
+         "read": "PARKING",
+         "errors": 0,
+         "characters": 7
+        }
+       ]
+      },
+      {
+       "image": "sign-18.jpg",
+       "ms": 147.0,
+       "extra_regions": 0,
+       "lines": [
+        {
+         "expected": "Coffee & Tea",
+         "read": "Coffee & Tea",
+         "errors": 0,
+         "characters": 9
+        }
+       ]
+      },
+      {
+       "image": "sign-19.jpg",
+       "ms": 184.5,
+       "extra_regions": 0,
+       "lines": [
+        {
+         "expected": "樂聲鐘錶眼鏡",
+         "read": "樂聲鐘錶眼鏡",
+         "errors": 0,
+         "characters": 6
+        }
+       ]
+      },
+      {
+       "image": "sign-20.jpg",
+       "ms": 206.6,
+       "extra_regions": 0,
+       "lines": [
+        {
+         "expected": "理髮廳",
+         "read": "理髮廳",
+         "errors": 0,
+         "characters": 3
+        },
+        {
+         "expected": "鮮榨果汁",
+         "read": "鮮榨果汁",
+         "errors": 0,
+         "characters": 4
+        }
+       ]
+      },
+      {
+       "image": "sign-21.jpg",
+       "ms": 190.3,
+       "extra_regions": 0,
+       "lines": [
+        {
+         "expected": "巷口滷味",
+         "read": "巷口滷味",
+         "errors": 0,
+         "characters": 4
+        },
+        {
+         "expected": "外送專線 2345-6789",
+         "read": "外送專線2345-6789",
+         "errors": 0,
+         "characters": 12
+        }
+       ]
+      },
+      {
+       "image": "sign-22.jpg",
+       "ms": 155.4,
+       "extra_regions": 0,
+       "lines": [
+        {
+         "expected": "老街豆花",
+         "read": "老街豆花",
+         "errors": 0,
+         "characters": 4
+        }
+       ]
+      },
+      {
+       "image": "sign-23.jpg",
+       "ms": 216.7,
+       "extra_regions": 0,
+       "lines": [
+        {
+         "expected": "鐵板燒",
+         "read": "鐵板燒",
+         "errors": 0,
+         "characters": 3
+        },
+        {
+         "expected": "鹽酥雞",
+         "read": "鹽酥雞",
+         "errors": 0,
+         "characters": 3
+        },
+        {
+         "expected": "宵夜場",
+         "read": "宵夜場",
+         "errors": 0,
+         "characters": 3
+        }
+       ]
+      }
+     ]
+    }
+   }
+  },
+  "paddleocr": {
+   "device": "cpu",
+   "sets": {
+    "photos": {
+     "images": 8,
+     "lines": 70,
+     "characters": 364,
+     "errors": 56,
+     "exact_lines": 39,
+     "extra_regions": 65,
+     "cer": 0.1538,
+     "cer_to_traditional": 0.1236,
+     "line_accuracy": 0.5571,
+     "median_ms": 1047.6,
+     "mean_ms": 991.2,
+     "images_detail": [
+      {
+       "image": "aan-migao-night.jpg",
+       "ms": 1052.4,
+       "extra_regions": 8,
+       "lines": [
+        {
+         "expected": "阿岸米糕",
+         "read": "阿羊朱糕",
+         "errors": 2,
+         "characters": 4
+        },
+        {
+         "expected": "鹹米糕20",
+         "read": "【鹹米糕20】",
+         "errors": 0,
+         "characters": 5
+        },
+        {
+         "expected": "5-2259359",
+         "read": "5-2259359",
+         "errors": 0,
+         "characters": 8
+        },
+        {
+         "expected": "文化路老張米糕",
+         "read": "文化路老張米糕",
+         "errors": 0,
+         "characters": 7
+        },
+        {
+         "expected": "賀茶堂",
+         "read": "贺茶堂",
+         "errors": 1,
+         "characters": 3
+        },
+        {
+         "expected": "鮮泡手作茶",
+         "read": "鲜泡手作茶",
+         "errors": 1,
+         "characters": 5
+        },
+        {
+         "expected": "賀茶堂",
+         "read": "贺茶堂",
+         "errors": 1,
+         "characters": 3
+        },
+        {
+         "expected": "茶拿鐵",
+         "read": "茶拿鐵",
+         "errors": 0,
+         "characters": 3
+        },
+        {
+         "expected": "Tea Latte",
+         "read": "Tea Latte",
+         "errors": 0,
+         "characters": 8
+        },
+        {
+         "expected": "MAČU",
+         "read": "MAČU",
+         "errors": 0,
+         "characters": 4
+        }
+       ]
+      },
+      {
+       "image": "guixian-village-sign.jpg",
+       "ms": 590.9,
+       "extra_regions": 0,
+       "lines": [
+        {
+         "expected": "住貴賢 人富貴 子女賢",
+         "read": "佳貴賢人富貴 子女賢",
+         "errors": 1,
+         "characters": 9
+        },
+        {
+         "expected": "貴賢里辦公處 敬製",
+         "read": "貴賢里辦公處敬製",
+         "errors": 0,
+         "characters": 8
+        }
+       ]
+      },
+      {
+       "image": "night-road-signs.jpg",
+       "ms": 1323.7,
+       "extra_regions": 12,
+       "lines": [
+        {
+         "expected": "蝦味鮮",
+         "read": "蝦味鮮",
+         "errors": 0,
+         "characters": 3
+        },
+        {
+         "expected": "活蝦料理",
+         "read": "活蝦料理",
+         "errors": 0,
+         "characters": 4
+        },
+        {
+         "expected": "外送專線",
+         "read": "外送專線",
+         "errors": 0,
+         "characters": 4
+        },
+        {
+         "expected": "0973-508271",
+         "read": "0973-508271",
+         "errors": 0,
+         "characters": 10
+        },
+        {
+         "expected": "禁止酒駕未滿",
+         "read": "禁止酒駕未滿",
+         "errors": 0,
+         "characters": 6
+        },
+        {
+         "expected": "十八歲禁止飲酒",
+         "read": "十八歲禁止飲酒",
+         "errors": 0,
+         "characters": 7
+        },
+        {
+         "expected": "友華賓館",
+         "read": "友華宾馆",
+         "errors": 2,
+         "characters": 4
+        },
+        {
+         "expected": "初來炸道",
+         "read": "初來炸道102",
+         "errors": 3,
+         "characters": 4
+        },
+        {
+         "expected": "初來炸道",
+         "read": "初来炸道",
+         "errors": 1,
+         "characters": 4
+        },
+        {
+         "expected": "台灣代駕",
+         "read": "台灣代属",
+         "errors": 1,
+         "characters": 4
+        }
+       ]
+      },
+      {
+       "image": "noodle-shop-21.jpg",
+       "ms": 1197.8,
+       "extra_regions": 4,
+       "lines": [
+        {
+         "expected": "21工房",
+         "read": "21工房",
+         "errors": 0,
+         "characters": 4
+        },
+        {
+         "expected": "自家製の天然好麵",
+         "read": "自家製の天然好麵",
+         "errors": 0,
+         "characters": 8
+        },
+        {
+         "expected": "鐵道模型",
+         "read": "",
+         "errors": 4,
+         "characters": 4
+        },
+        {
+         "expected": "M.J.",
+         "read": "M.J.",
+         "errors": 0,
+         "characters": 2
+        },
+        {
+         "expected": "敦美苑",
+         "read": "敦美苑",
+         "errors": 0,
+         "characters": 3
+        },
+        {
+         "expected": "21工房",
+         "read": "21工房",
+         "errors": 0,
+         "characters": 4
+        },
+        {
+         "expected": "21工房",
+         "read": "21工房",
+         "errors": 0,
+         "characters": 4
+        },
+        {
+         "expected": "21工房",
+         "read": "21工房",
+         "errors": 0,
+         "characters": 4
+        },
+        {
+         "expected": "WORKER HOUSE",
+         "read": "WORKER HOURE",
+         "errors": 1,
+         "characters": 11
+        },
+        {
+         "expected": "嚴選天然食材",
+         "read": "星通天然食材",
+         "errors": 2,
+         "characters": 6
+        },
+        {
+         "expected": "保證不加防腐劑",
+         "read": "",
+         "errors": 7,
+         "characters": 7
+        },
+        {
+         "expected": "天然手工涼麵",
+         "read": "天然手工凉麵",
+         "errors": 1,
+         "characters": 6
+        },
+        {
+         "expected": "HAND-MADE CHILLED NOODLES",
+         "read": "HAND-MADE CHILLED NOODLES",
+         "errors": 0,
+         "characters": 22
+        },
+        {
+         "expected": "美味·健康",
+         "read": "美味·健康",
+         "errors": 0,
+         "characters": 4
+        },
+        {
+         "expected": "伸春商店",
+         "read": "伸春商店",
+         "errors": 0,
+         "characters": 4
+        },
+        {
+         "expected": "語心扉",
+         "read": "語心扉",
+         "errors": 0,
+         "characters": 3
+        },
+        {
+         "expected": "人才招募",
+         "read": "人才招幕",
+         "errors": 1,
+         "characters": 4
+        }
+       ]
+      },
+      {
+       "image": "sheng-chun-shop.jpg",
+       "ms": 1042.8,
+       "extra_regions": 16,
+       "lines": [
+        {
+         "expected": "伸春商店",
+         "read": "伸春商店",
+         "errors": 0,
+         "characters": 4
+        },
+        {
+         "expected": "伸春商店",
+         "read": "伸春商店",
+         "errors": 0,
+         "characters": 4
+        },
+        {
+         "expected": "環保袋",
+         "read": "环保袋",
+         "errors": 1,
+         "characters": 3
+        },
+        {
+         "expected": "菸酒",
+         "read": "菸酒",
+         "errors": 0,
+         "characters": 2
+        },
+        {
+         "expected": "雜貨",
+         "read": "雜货",
+         "errors": 1,
+         "characters": 2
+        },
+        {
+         "expected": "雨傘.雨衣",
+         "read": "雨伞雨衣",
+         "errors": 1,
+         "characters": 4
+        },
+        {
+         "expected": "環保袋",
+         "read": "",
+         "errors": 3,
+         "characters": 3
+        },
+        {
+         "expected": "菸酒",
+         "read": "環菸雜",
+         "errors": 2,
+         "characters": 2
+        },
+        {
+         "expected": "雜貨",
+         "read": "",
+         "errors": 2,
+         "characters": 2
+        },
+        {
+         "expected": "雨傘.雨衣",
+         "read": "雨伞.雨衣",
+         "errors": 1,
+         "characters": 4
+        },
+        {
+         "expected": "健康素食",
+         "read": "健康素食",
+         "errors": 0,
+         "characters": 4
+        },
+        {
+         "expected": "自然飲食 五穀蔬菜餐",
+         "read": "自然款食五款蔬荣餐",
+         "errors": 3,
+         "characters": 9
+        }
+       ]
+      },
+      {
+       "image": "street-name-signs.jpg",
+       "ms": 607.3,
+       "extra_regions": 0,
+       "lines": [
+        {
+         "expected": "富錦街",
+         "read": "富锦街",
+         "errors": 1,
+         "characters": 3
+        },
+        {
+         "expected": "三民路",
+         "read": "三民路",
+         "errors": 0,
+         "characters": 3
+        }
+       ]
+      },
+      {
+       "image": "taipei-street-signs.jpg",
+       "ms": 1393.7,
+       "extra_regions": 24,
+       "lines": [
+        {
+         "expected": "二哥の店",
+         "read": "二哥の店",
+         "errors": 0,
+         "characters": 4
+        },
+        {
+         "expected": "二哥の店",
+         "read": "一哥の店",
+         "errors": 1,
+         "characters": 4
+        },
+        {
+         "expected": "優質餐盒",
+         "read": "優質餐盒",
+         "errors": 0,
+         "characters": 4
+        },
+        {
+         "expected": "一律60元",
+         "read": "一律60元",
+         "errors": 0,
+         "characters": 5
+        },
+        {
+         "expected": "8985-5448",
+         "read": "8985-5448",
+         "errors": 0,
+         "characters": 8
+        },
+        {
+         "expected": "小火鍋",
+         "read": "小火鍋",
+         "errors": 0,
+         "characters": 3
+        },
+        {
+         "expected": "2986-6996",
+         "read": "2986-6996",
+         "errors": 0,
+         "characters": 8
+        },
+        {
+         "expected": "全館便當",
+         "read": "全館便",
+         "errors": 1,
+         "characters": 4
+        },
+        {
+         "expected": "本店已投保1000萬產品責任險，敬請安",
+         "read": "本店已投保1000萬產品責任險，敬請安",
+         "errors": 0,
+         "characters": 18
+        },
+        {
+         "expected": "建",
+         "read": "1",
+         "errors": 1,
+         "characters": 1
+        },
+        {
+         "expected": "上紅",
+         "read": "",
+         "errors": 2,
+         "characters": 2
+        },
+        {
+         "expected": "小火鍋",
+         "read": "",
+         "errors": 3,
+         "characters": 3
+        }
+       ]
+      },
+      {
+       "image": "teppanyaki-sign.jpg",
+       "ms": 721.4,
+       "extra_regions": 1,
+       "lines": [
+        {
+         "expected": "千繽鐵板燒",
+         "read": "千繽鐵板燒",
+         "errors": 0,
+         "characters": 5
+        },
+        {
+         "expected": "TEL:2749-5377",
+         "read": "TEL:2749-5377",
+         "errors": 0,
+         "characters": 11
+        },
+        {
+         "expected": "千繽鐵板燒",
+         "read": "干價鐵板烧",
+         "errors": 3,
+         "characters": 5
+        },
+        {
+         "expected": "平安就是",
+         "read": "平安就是",
+         "errors": 0,
+         "characters": 4
+        },
+        {
+         "expected": "商業午餐 牛.羊.豬.花枝",
+         "read": "商業午餐牛羊粥花枝",
+         "errors": 1,
+         "characters": 9
+        }
+       ]
+      }
+     ]
+    },
+    "synthetic": {
+     "images": 24,
+     "lines": 40,
+     "characters": 204,
+     "errors": 1,
+     "exact_lines": 39,
+     "extra_regions": 0,
+     "cer": 0.0049,
+     "cer_to_traditional": 0.0049,
+     "line_accuracy": 0.975,
+     "median_ms": 324.4,
+     "mean_ms": 338.4,
+     "images_detail": [
+      {
+       "image": "sign-00.jpg",
+       "ms": 275.8,
+       "extra_regions": 0,
+       "lines": [
+        {
+         "expected": "臺灣小吃館",
+         "read": "臺灣小吃館",
+         "errors": 0,
+         "characters": 5
+        }
+       ]
+      },
+      {
+       "image": "sign-01.jpg",
+       "ms": 305.0,
+       "extra_regions": 0,
+       "lines": [
+        {
+         "expected": "第二停車場",
+         "read": "第二停車場",
+         "errors": 0,
+         "characters": 5
+        },
+        {
+         "expected": "PARKING",
+         "read": "PARKING",
+         "errors": 0,
+         "characters": 7
+        }
+       ]
+      },
+      {
+       "image": "sign-02.jpg",
+       "ms": 327.2,
+       "extra_regions": 0,
+       "lines": [
+        {
+         "expected": "理髮廳",
+         "read": "理髮廳",
+         "errors": 0,
+         "characters": 3
+        },
+        {
+         "expected": "Coffee & Tea",
+         "read": "Coffee & Tea",
+         "errors": 0,
+         "characters": 9
+        }
+       ]
+      },
+      {
+       "image": "sign-03.jpg",
+       "ms": 308.6,
+       "extra_regions": 0,
+       "lines": [
+        {
+         "expected": "樂聲鐘錶眼鏡",
+         "read": "樂聲鐘錶眼鏡",
+         "errors": 0,
+         "characters": 6
+        }
+       ]
+      },
+      {
+       "image": "sign-04.jpg",
+       "ms": 305.0,
+       "extra_regions": 0,
+       "lines": [
+        {
+         "expected": "鮮榨果汁",
+         "read": "鮮榨果汁",
+         "errors": 0,
+         "characters": 4
+        }
+       ]
+      },
+      {
+       "image": "sign-05.jpg",
+       "ms": 450.3,
+       "extra_regions": 0,
+       "lines": [
+        {
+         "expected": "鐵板燒",
+         "read": "鐵板燒",
+         "errors": 0,
+         "characters": 3
+        },
+        {
+         "expected": "巷口滷味",
+         "read": "巷口滷味",
+         "errors": 0,
+         "characters": 4
+        },
+        {
+         "expected": "外送專線 2345-6789",
+         "read": "外送專線2345-6789",
+         "errors": 0,
+         "characters": 12
+        }
+       ]
+      },
+      {
+       "image": "sign-06.jpg",
+       "ms": 255.8,
+       "extra_regions": 0,
+       "lines": [
+        {
+         "expected": "老街豆花",
+         "read": "老街豆花",
+         "errors": 0,
+         "characters": 4
+        }
+       ]
+      },
+      {
+       "image": "sign-07.jpg",
+       "ms": 350.9,
+       "extra_regions": 0,
+       "lines": [
+        {
+         "expected": "鹽酥雞",
+         "read": "鹽酥雞",
+         "errors": 0,
+         "characters": 3
+        },
+        {
+         "expected": "宵夜場",
+         "read": "宵夜場",
+         "errors": 0,
+         "characters": 3
+        }
+       ]
+      },
+      {
+       "image": "sign-08.jpg",
+       "ms": 409.8,
+       "extra_regions": 0,
+       "lines": [
+        {
+         "expected": "中醫診所",
+         "read": "中醫診所",
+         "errors": 0,
+         "characters": 4
+        },
+        {
+         "expected": "冷氣維修",
+         "read": "冷氣維修",
+         "errors": 0,
+         "characters": 4
+        },
+        {
+         "expected": "安裝 保養 買賣",
+         "read": "安裝保養買賣",
+         "errors": 0,
+         "characters": 6
+        }
+       ]
+      },
+      {
+       "image": "sign-09.jpg",
+       "ms": 294.0,
+       "extra_regions": 0,
+       "lines": [
+        {
+         "expected": "優質二手書",
+         "read": "優質二手書",
+         "errors": 0,
+         "characters": 5
+        }
+       ]
+      },
+      {
+       "image": "sign-10.jpg",
+       "ms": 381.6,
+       "extra_regions": 0,
+       "lines": [
+        {
+         "expected": "藝術體驗教室",
+         "read": "藝術體驗教室",
+         "errors": 0,
+         "characters": 6
+        }
+       ]
+      },
+      {
+       "image": "sign-11.jpg",
+       "ms": 321.7,
+       "extra_regions": 0,
+       "lines": [
+        {
+         "expected": "當舖",
+         "read": "當鋪",
+         "errors": 1,
+         "characters": 2
+        },
+        {
+         "expected": "幸福早餐店",
+         "read": "幸福早餐店",
+         "errors": 0,
+         "characters": 5
+        }
+       ]
+      },
+      {
+       "image": "sign-12.jpg",
+       "ms": 314.6,
+       "extra_regions": 0,
+       "lines": [
+        {
+         "expected": "請勿停車",
+         "read": "請勿停車",
+         "errors": 0,
+         "characters": 4
+        }
+       ]
+      },
+      {
+       "image": "sign-13.jpg",
+       "ms": 385.9,
+       "extra_regions": 0,
+       "lines": [
+        {
+         "expected": "阿明牛肉麵",
+         "read": "阿明牛肉麵",
+         "errors": 0,
+         "characters": 5
+        },
+        {
+         "expected": "營業時間 10:00-21:00",
+         "read": "營業時間 10:00-21:00",
+         "errors": 0,
+         "characters": 12
+        }
+       ]
+      },
+      {
+       "image": "sign-14.jpg",
+       "ms": 387.4,
+       "extra_regions": 0,
+       "lines": [
+        {
+         "expected": "書法教室",
+         "read": "書法教室",
+         "errors": 0,
+         "characters": 4
+        },
+        {
+         "expected": "福氣便當",
+         "read": "福氣便當",
+         "errors": 0,
+         "characters": 4
+        }
+       ]
+      },
+      {
+       "image": "sign-15.jpg",
+       "ms": 318.7,
+       "extra_regions": 0,
+       "lines": [
+        {
+         "expected": "豐年五金行",
+         "read": "豐年五金行",
+         "errors": 0,
+         "characters": 5
+        }
+       ]
+      },
+      {
+       "image": "sign-16.jpg",
+       "ms": 302.4,
+       "extra_regions": 0,
+       "lines": [
+        {
+         "expected": "臺灣小吃館",
+         "read": "臺灣小吃館",
+         "errors": 0,
+         "characters": 5
+        }
+       ]
+      },
+      {
+       "image": "sign-17.jpg",
+       "ms": 392.0,
+       "extra_regions": 0,
+       "lines": [
+        {
+         "expected": "旅社",
+         "read": "旅社",
+         "errors": 0,
+         "characters": 2
+        },
+        {
+         "expected": "第二停車場",
+         "read": "第二停車場",
+         "errors": 0,
+         "characters": 5
+        },
+        {
+         "expected": "PARKING",
+         "read": "PARKING",
+         "errors": 0,
+         "characters": 7
+        }
+       ]
+      },
+      {
+       "image": "sign-18.jpg",
+       "ms": 291.2,
+       "extra_regions": 0,
+       "lines": [
+        {
+         "expected": "Coffee & Tea",
+         "read": "Coffee & Tea",
+         "errors": 0,
+         "characters": 9
+        }
+       ]
+      },
+      {
+       "image": "sign-19.jpg",
+       "ms": 329.3,
+       "extra_regions": 0,
+       "lines": [
+        {
+         "expected": "樂聲鐘錶眼鏡",
+         "read": "樂聲鐘錶眼鏡",
+         "errors": 0,
+         "characters": 6
+        }
+       ]
+      },
+      {
+       "image": "sign-20.jpg",
+       "ms": 338.2,
+       "extra_regions": 0,
+       "lines": [
+        {
+         "expected": "理髮廳",
+         "read": "理髮廳",
+         "errors": 0,
+         "characters": 3
+        },
+        {
+         "expected": "鮮榨果汁",
+         "read": "鮮榨果汁",
+         "errors": 0,
+         "characters": 4
+        }
+       ]
+      },
+      {
+       "image": "sign-21.jpg",
+       "ms": 378.5,
+       "extra_regions": 0,
+       "lines": [
+        {
+         "expected": "巷口滷味",
+         "read": "巷口滷味",
+         "errors": 0,
+         "characters": 4
+        },
+        {
+         "expected": "外送專線 2345-6789",
+         "read": "外送專線2345-6789",
+         "errors": 0,
+         "characters": 12
+        }
+       ]
+      },
+      {
+       "image": "sign-22.jpg",
+       "ms": 301.0,
+       "extra_regions": 0,
+       "lines": [
+        {
+         "expected": "老街豆花",
+         "read": "老街豆花",
+         "errors": 0,
+         "characters": 4
+        }
+       ]
+      },
+      {
+       "image": "sign-23.jpg",
+       "ms": 396.8,
+       "extra_regions": 0,
+       "lines": [
+        {
+         "expected": "鐵板燒",
+         "read": "鐵板燒",
+         "errors": 0,
+         "characters": 3
+        },
+        {
+         "expected": "鹽酥雞",
+         "read": "鹽酥雞",
+         "errors": 0,
+         "characters": 3
+        },
+        {
+         "expected": "宵夜場",
+         "read": "宵夜場",
+         "errors": 0,
+         "characters": 3
+        }
+       ]
+      }
+     ]
+    }
+   }
+  }
+ }
+}
