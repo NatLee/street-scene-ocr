@@ -1,0 +1,85 @@
+<!doctype html>
+<!--
+  Source of cover.png (1280x640, the GitHub social preview size). Re-render with headless Edge:
+    msedge --headless=new --disable-gpu --hide-scrollbars --window-size=1280,640 \
+      --screenshot=cover.png file:///<repo>/docs/images/cover.html
+  The photo panel is result-paddleocr.jpg made by docs/figures.py; the numbers come from
+  eval/results/results.md (photos set).
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>street-scene-ocr cover</title>
+<style>
+  * { box-sizing: border-box; margin: 0; }
+  html, body { width: 1280px; height: 640px; overflow: hidden; }
+  body {
+    background:
+      radial-gradient(900px 500px at 92% 10%, rgb(45 212 191 / 16%), transparent 60%),
+      radial-gradient(700px 420px at 0% 100%, rgb(250 204 21 / 10%), transparent 60%),
+      #0e1217;
+    color: #e8e4dc;
+    font-family: "Segoe UI", "Microsoft JhengHei", "Noto Sans TC", sans-serif;
+    display: grid;
+    grid-template-columns: 600px 1fr;
+    gap: 36px;
+    padding: 56px 56px 48px 64px;
+  }
+  .eyebrow { font: 600 17px/1 Consolas, "Cascadia Code", monospace; letter-spacing: 0.14em; color: #2dd4bf; }
+  h1 { font-size: 66px; line-height: 1.04; letter-spacing: -0.02em; margin: 20px 0 18px; color: #fff; }
+  .tagline { font-size: 25px; line-height: 1.4; color: #c4cbd4; max-width: 560px; }
+  .tagline b { color: #fff; font-weight: 600; }
+  .pipeline { display: flex; align-items: center; gap: 10px; margin: 30px 0 30px; font-size: 19px; }
+  .chip { padding: 8px 14px; border-radius: 10px; border: 1.5px solid #2c3540; background: #151b22; }
+  .chip small { display: block; color: #8b96a3; font-size: 13px; margin-top: 2px; }
+  .arrow { color: #2dd4bf; font-size: 22px; }
+  .bench { display: grid; gap: 11px; }
+  .bench-title { font: 600 14px/1 Consolas, monospace; letter-spacing: 0.1em; color: #8b96a3; margin-bottom: 2px; }
+  .row { display: grid; grid-template-columns: 120px 1fr 160px; align-items: center; gap: 14px; font-size: 19px; }
+  .bar { height: 14px; border-radius: 7px; background: #1d252e; overflow: hidden; }
+  .bar i { display: block; height: 100%; border-radius: 7px; background: linear-gradient(90deg, #2dd4bf, #fbbf24); }
+  .row .num { font: 600 18px/1 Consolas, monospace; color: #e8e4dc; text-align: right; white-space: nowrap; }
+  .shot {
+    position: relative;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 30px 60px rgb(0 0 0 / 55%), 0 0 0 1.5px rgb(255 255 255 / 9%);
+    align-self: center;
+    height: 528px;
+    background: url("result-paddleocr.jpg") no-repeat;
+    background-size: 1060px auto;
+    background-position: -188px -77px;
+  }
+  .json {
+    position: absolute; left: 22px; bottom: 22px;
+    padding: 14px 18px; border-radius: 12px;
+    background: rgb(14 18 23 / 88%); border: 1px solid #2c3540;
+    font: 17px/1.5 Consolas, "Cascadia Code", monospace; color: #c4cbd4;
+  }
+  .json .k { color: #7dd3fc; } .json .s { color: #a3e635; } .json .n { color: #fbbf24; }
+</style>
+</head>
+<body>
+  <section>
+    <p class="eyebrow">SCENE TEXT OCR · 繁體中文</p>
+    <h1>street-scene-ocr</h1>
+    <p class="tagline">Read Traditional Chinese street signs. Compare <b>EasyOCR</b>, <b>RapidOCR</b> and
+      <b>PaddleOCR</b> side by side.</p>
+    <div class="pipeline">
+      <span class="chip">detect<small>where is text?</small></span><span class="arrow">→</span>
+      <span class="chip">recognise<small>which characters?</small></span><span class="arrow">→</span>
+      <span class="chip">post-process<small>threshold, order</small></span>
+    </div>
+    <div class="bench">
+      <p class="bench-title">CHARACTER ERROR RATE · 8 CC0 STREET PHOTOS · LOWER IS BETTER</p>
+      <div class="row"><span>PaddleOCR</span><span class="bar"><i style="width:15.4%"></i></span><span class="num">15.4% · 1.1 s</span></div>
+      <div class="row"><span>RapidOCR</span><span class="bar"><i style="width:18.4%"></i></span><span class="num">18.4% · 0.35 s</span></div>
+      <div class="row"><span>EasyOCR</span><span class="bar"><i style="width:74.5%"></i></span><span class="num">74.5% · 4.8 s</span></div>
+    </div>
+  </section>
+  <div class="shot">
+    <div class="json"><span class="k">"text"</span>: <span class="s">"敦美苑"</span>,<br>
+      <span class="k">"confidence"</span>: <span class="n">0.9665</span></div>
+  </div>
+</body>
+</html>
