@@ -1,90 +1,204 @@
+<p align="center">
+  <img src="docs/images/cover.png" alt="street-scene-ocr: read Traditional Chinese street signs and compare OCR engines side by side" width="100%">
+</p>
 
-# 自然場景中文字辨識應用
+# street-scene-ocr
 
-> Author: NatLee
+[![CI](https://github.com/NatLee/street-scene-ocr/actions/workflows/ci.yml/badge.svg)](https://github.com/NatLee/street-scene-ocr/actions/workflows/ci.yml)
+[![License: Apache-2.0](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](LICENSE)
+![Python 3.11+](https://img.shields.io/badge/python-3.11%2B-3776ab.svg)
+![Docker](https://img.shields.io/badge/docker-compose-2496ed.svg)
 
-> Last update date: 2021/08/02
+Read the text on Traditional Chinese street signs — shop names, phone numbers, vertical signboards — and see
+how three OCR engines do it. Upload a photo on the web page or send it to the JSON API, and **EasyOCR**,
+**RapidOCR** and **PaddleOCR** each draw the boxes they found and the text they read, with timings for every
+step. The documentation walks through the pipeline (detection → recognition → post-processing) with real
+model outputs, and a small benchmark with public-domain photos tells you which engine to pick.
 
-> Job: AI應用服務工程師
+這是一個街景中文字辨識的學習專案：上傳街景照片，三種 OCR 引擎並排比較找到的文字框、辨識結果與每個步驟的耗時。
+文件用真實的模型輸出，一步步說明「偵測 → 辨識 → 後處理」，並附上用公眾領域照片做的小型評測。
 
-This was a take-home test for a job interview at a financial company.
+![The web page comparing three engines on one photo](docs/images/ui.jpg)
 
-## Question
+## What is inside
 
-- 自然場景中文字辨識應用(街景中的招牌等非固定格式中英文辨識)
-- 自行搜尋網路上repo, 建置對應辨識服務，請以分階段建置服務
-    - 準備docker部署規劃
-    - 後續正式部署測試說明
+- **A web page** to upload a photo (or pick a sample), choose engines, and move a confidence threshold that
+  re-colours the boxes instantly. Each engine gets its own panel with its boxes, text, confidence and timing.
+- **A JSON API** built with FastAPI, with interactive docs at `/docs`: boxes, text, confidence and per-stage
+  timing for every region, or the annotated image as a PNG.
+- **Three engines behind one interface.** Adding a fourth is one class ([how](docs/engines.md#adding-an-engine)).
+- **A Docker set-up** with Traefik spreading requests over several containers, an HTTPS production mode and an
+  optional GPU image.
+- **Learning material**: [how scene-text OCR works](docs/pipeline.md), [which engine to choose](docs/engines.md)
+  and [a benchmark you can re-run](eval/README.md).
 
+## Quick start
 
-## Introduction
+With Docker (builds the image, downloads the models once, starts Traefik and two OCR containers):
 
-本專案爲建立一個`自然場景中文字辨識應用(街景中的招牌等非固定格式中英文辨識)`的網站服務系統
+```bash
+git clone https://github.com/NatLee/street-scene-ocr.git
+cd street-scene-ocr
+docker compose up --build
+```
 
-後端採用Flask建成基本網站服務，使用者上傳圖片後使用OpenCV及EasyOCR來辨識文字並繪出bounding box及text於原圖上輸出至前端
+Open <http://localhost:8080>, click a sample photo and press **Read text**. The first read of each engine
+takes a few extra seconds while it loads its models.
 
-Load balance的部分採用Traefik來進行docker的container自動分流
+Without Docker, with the lightest engine (Python 3.11 or newer):
 
-## OCR
-- https://github.com/JaidedAI/EasyOCR
+```bash
+pip install -e ".[rapidocr]"          # or ".[easyocr]", ".[paddleocr]", ".[easyocr,rapidocr,paddleocr]"
+OCR_DEFAULT_ENGINE=rapidocr street-scene-ocr serve
+```
 
-- Strcture of EasyOCR
+Then open <http://localhost:8000>. The same install gives you a command line:
 
-![easyocr_framework](./doc/easyocr_framework.png)
+```bash
+street-scene-ocr read eval/data/photos/noodle-shop-21.jpg --engine rapidocr --annotated out.png
+```
 
-There are serveral parts in the structure.
-The most important TWO are `text detection` and `text recognition`.
+## Use the API
 
-### Text detection
+```bash
+curl -F file=@eval/data/photos/street-name-signs.jpg -F engine=rapidocr http://localhost:8080/api/ocr
+```
 
-CRAFT Algorithm
-- https://github.com/clovaai/CRAFT-pytorch
+```json
+{
+  "engine": "rapidocr",
+  "device": "cpu",
+  "width": 927,
+  "height": 1400,
+  "min_confidence": 0.3,
+  "regions": [
+    {
+      "text": "富錦街",
+      "confidence": 0.9873,
+      "confident": true,
+      "polygon": [[285, 393], [402, 376], [409, 425], [293, 442]],
+      "bbox": [285, 376, 409, 442]
+    },
+    {
+      "text": "三民路",
+      "confidence": 0.9994,
+      "confident": true,
+      "polygon": [[469, 459], [594, 491], [582, 536], [457, 505]],
+      "bbox": [457, 459, 594, 536]
+    }
+  ],
+  "text": "富錦街
+三民路",
+  "to_traditional": false,
+  "stages_ms": {"detection": 228, "direction": 4.4, "recognition": 15},
+  "total_ms": 256.4,
+  "served_by": "a6c348492821"
+}
+```
 
-![craft_example](./doc/craft_example.gif)
+Other endpoints:
 
-PyTorch implementation for CRAFT text detector that effectively detect text area by exploring each character region and affinity between characters.
+| Endpoint | What it returns |
+|---|---|
+| `POST /api/ocr` | JSON as above. Form fields: `file`, and optionally `engine`, `min_confidence` (0–1) and `to_traditional` (convert Simplified characters with OpenCC). |
+| `POST /api/ocr/annotated` | The image as PNG with green (confident) and red (unsure) outlines and labels. Extra field: `show_unsure`. |
+| `GET /api/engines` | Engines on this server, whether they are installed and loaded, and the defaults. |
+| `GET /healthz` | `{"status": "ok"}`, for Docker and Traefik. |
+| `GET /docs` | Interactive API documentation (Swagger UI). |
 
-The bounding box of texts are obtained by simply finding minimum bounding rectangles on binary map after thresholding character region and affinity scores.
+From Python:
 
-### Text recognition
+```python
+import requests
 
-CRNN: An End-to-End Trainable Neural Network for Image-based Sequence Recognition and Its Application to Scene Text Recognition
-- https://arxiv.org/abs/1507.05717
+with open("eval/data/photos/sheng-chun-shop.jpg", "rb") as photo:
+    answer = requests.post(
+        "http://localhost:8080/api/ocr",
+        files={"file": photo},
+        data={"engine": "paddleocr", "min_confidence": 0.5},
+    ).json()
 
-Benchmark of text recognition model
-- https://github.com/clovaai/deep-text-recognition-benchmark
+for region in answer["regions"]:
+    print(f"{region['confidence']:.0%}  {region['text']}")
+```
 
-![trade-off](./doc/trade-off.png)
+Every response carries an `X-Served-By` header with the name of the container that answered, so you can
+watch Traefik spread the requests.
 
-As the figure, we can know that CRNN is not the best.
+## How it works
 
-Although this model is not the best, its response time and parameters are the least.
+```mermaid
+flowchart LR
+    photo[/"Street photo"/] --> det["1 · Detection<br/>CRAFT or DB finds<br/>text lines"]
+    det --> rec["2 · Recognition<br/>CRNN or PP-OCR reads<br/>each line (CTC)"]
+    rec --> post["3 · Post-processing<br/>threshold +<br/>reading order"]
+    post --> out[/"JSON · overlay · PNG"/]
+```
 
-In situations, there are lots of traffic and low response time are required. This architecture meets the requirements.
+The engines do steps 1 and 2; step 3 is shared code, so every engine is treated the same. The full
+explanation, with the detectors' actual heat maps and the recognisers' readings side by side, is in
+[docs/pipeline.md](docs/pipeline.md).
 
-## Usage
+![What the detectors see: CRAFT's character and link maps and the PP-OCRv6 text-line map](docs/images/detection-maps.jpg)
 
-- Python
+## Which engine?
 
-    `python3 app.py`
+Measured on 8 CC0 street photos (70 lines of sign text) and 24 synthetic signs, 4 CPU cores, the engines'
+default models. **CER** is the character error rate: lower is better.
 
-- Docker(you need to run traefik at first for load balance)
+| Engine | Photos: CER | Photos: lines exactly right | Synthetic: CER | Time per photo |
+|---|---:|---:|---:|---:|
+| **PaddleOCR** (PP-OCRv6 medium) | **15.4 %** (12.4 % with OpenCC) | 39 / 70 | 0.5 % | 1.1 s |
+| **RapidOCR** (PP-OCRv6 small) | 18.4 % (15.7 % with OpenCC) | 37 / 70 | **0.0 %** | **0.35 s** |
+| EasyOCR (CRAFT + CRNN, 2021) | 74.5 % | 8 / 70 | 14.7 % | 4.8 s |
 
-    `docker-compose up`
+In short: **RapidOCR** is the one to start with: nearly as accurate as PaddleOCR, about three times faster, no model
+download. **PaddleOCR** reads a little more. **EasyOCR**, the 2021 choice, misses most real signs: it finds
+few vertical and stylised signs, and its Traditional Chinese model cannot read the の in 二哥の店. Most of the
+PP-OCR mistakes are Simplified forms of the right character (贺 for 賀, 凉 for 涼), which the optional OpenCC
+conversion fixes.
 
-## Display
+Details, caveats and how to re-run it: [eval/README.md](eval/README.md). What each engine is and how to add
+your own: [docs/engines.md](docs/engines.md).
 
-When you upload an image, it will display the predicted result.
+## Deploy
 
-The accuracy is higher than 30%, it'll show with green bounding box.
+- `docker compose up` — local demo, Traefik on port 8080 in front of two OCR containers
+  (`OCR_REPLICAS=4` for more).
+- `docker compose -f compose.yaml -f compose.prod.yaml up -d` — join an existing Traefik with HTTPS on your
+  domain (`OCR_DOMAIN=…`), the set-up used in 2021.
+- `docker compose -f compose.yaml -f compose.gpu.yaml up --build` — PyTorch CUDA image; EasyOCR runs on the GPU.
 
-There are one part of image as following.
+All settings (default engine, threshold, upload limit, model folder, device …) are environment variables,
+listed in [docs/deploy.md](docs/deploy.md#settings) together with the deployment test plan.
 
-![result](./doc/result.png)
+## Project layout
 
+```text
+src/street_scene_ocr/
+  engines/        one class per engine + the shared interface (base.py)
+  service.py      loads engines on first use, runs the pipeline
+  postprocess.py  confidence threshold, reading order
+  render.py       draws boxes and labels (annotated PNG)
+  evaluation.py   CER scoring used by the benchmark
+  api.py          FastAPI app;  web/  the upload page
+eval/             benchmark: photos, synthetic signs, labels, run.py, results/
+docs/             pipeline, engines, deployment, history, images (+ figures.py, cover.html)
+docker/           engine install script used by the Dockerfile
+tests/            unit tests (fake engine) + a real-engine smoke test run in CI
+```
 
-The comparison with original image and result is shown as below.
+## History
 
-![compare](./doc/compare.png)
+This started in 2021 as a take-home test for a job interview: build a scene-text recognition service for
+Chinese and English street signs, with a Docker deployment plan. The original question, what the first
+version did and its presentation are in [docs/history.md](docs/history.md). Every feature of the 2021 version
+is still here.
 
+## Licence
 
+- Code: [Apache-2.0](LICENSE).
+- Bundled font: Noto Serif CJK TC, [SIL Open Font License 1.1](src/street_scene_ocr/fonts/OFL.txt).
+- Benchmark and sample photos: CC0 1.0 from Wikimedia Commons, authors listed in
+  [eval/data/photos](eval/data/photos/README.md). Synthetic signs: generated by this project.
+- The OCR engines and their models keep their own licences (all Apache-2.0 at the time of writing).

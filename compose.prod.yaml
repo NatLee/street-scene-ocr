@@ -1,0 +1,26 @@
+# Production: join a Traefik that already runs on the host (the 2021 set-up) and serve HTTPS.
+#
+#   OCR_DOMAIN=ocr.example.com docker compose -f compose.yaml -f compose.prod.yaml up -d
+#
+# Assumes that Traefik is attached to an external Docker network called "web", has an entrypoint
+# called "websecure" and a Let's Encrypt certificate resolver called "le". Change the names below if
+# yours differ.
+
+services:
+  traefik:
+    profiles: ["bundled-traefik"]  # not started: the host's Traefik does the routing
+
+  ocr:
+    networks: [web, default]
+    labels:
+      - traefik.enable=true
+      - traefik.docker.network=web
+      - traefik.http.routers.ocr.rule=Host(`${OCR_DOMAIN:?set OCR_DOMAIN to your domain}`)
+      - traefik.http.routers.ocr.entrypoints=websecure
+      - traefik.http.routers.ocr.tls.certresolver=le
+      - traefik.http.services.ocr.loadbalancer.server.port=8000
+      - traefik.http.services.ocr.loadbalancer.healthcheck.path=/healthz
+
+networks:
+  web:
+    external: true

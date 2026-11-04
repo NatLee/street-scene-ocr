@@ -1,0 +1,55 @@
+[build-system]
+requires = ["hatchling>=1.27"]
+build-backend = "hatchling.build"
+
+[project]
+name = "street-scene-ocr"
+version = "2.0.0"
+description = "Read Traditional Chinese street signs with EasyOCR, PaddleOCR and RapidOCR side by side: a FastAPI service, a web UI and a small honest benchmark."
+readme = "README.md"
+license = "Apache-2.0"
+license-files = ["LICENSE"]
+authors = [{ name = "Nat Lee", email = "natlee.work@gmail.com" }]
+requires-python = ">=3.11"
+keywords = ["ocr", "scene-text", "traditional-chinese", "easyocr", "paddleocr", "rapidocr", "fastapi"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Framework :: FastAPI",
+    "Topic :: Scientific/Engineering :: Image Recognition",
+]
+dependencies = [
+    "fastapi>=0.115",
+    "uvicorn>=0.30",
+    "python-multipart>=0.0.18",
+    "numpy>=1.26",
+    "pillow>=10.4",
+    "opencc>=1.1",
+]
+
+[project.optional-dependencies]
+# One extra per engine. The Docker image installs the ones named in its ENGINES build argument.
+easyocr = ["easyocr>=1.7.2"]
+rapidocr = ["rapidocr>=3.10", "onnxruntime>=1.20"]
+paddleocr = ["paddleocr>=3.7", "onnxruntime>=1.20"]
+dev = ["pytest>=8", "httpx2>=2.9", "ruff>=0.8"]
+
+[project.urls]
+Homepage = "https://github.com/NatLee/street-scene-ocr"
+
+[project.scripts]
+street-scene-ocr = "street_scene_ocr.__main__:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/street_scene_ocr"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+markers = ["engines: needs the real OCR engines and their models (runs in the Docker job)"]
+addopts = "-m 'not engines'"
+
+[tool.ruff]
+line-length = 120
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "UP", "B", "SIM"]

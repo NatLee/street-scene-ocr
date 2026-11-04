@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>street-scene-ocr</title>
+  <link rel="icon" href="/static/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="/">
+      <img src="/static/favicon.svg" alt="" width="28" height="28">
+      <span>street-scene-ocr</span>
+    </a>
+    <p class="tagline">Read Traditional Chinese street signs and compare OCR engines side by side</p>
+    <nav>
+      <a href="/docs">API docs</a>
+      <a href="https://github.com/NatLee/street-scene-ocr/blob/main/docs/pipeline.md">How it works</a>
+    </nav>
+  </header>
+
+  <main class="layout">
+    <form class="panel controls" id="form">
+      <h2>1. Pick a photo</h2>
+      <label class="dropzone" id="dropzone">
+        <input type="file" id="file" name="file" accept=".png,.jpg,.jpeg,image/png,image/jpeg">
+        <img id="preview" alt="" hidden>
+        <span class="dropzone-hint" id="dropzone-hint">
+          <strong>Drop an image here</strong> or click to choose<br>
+          <small id="limits">png, jpg or jpeg</small>
+        </span>
+      </label>
+      <div class="samples" id="samples" aria-label="Sample photos"></div>
+
+      <h2>2. Choose engines</h2>
+      <div class="engines" id="engines"><p class="muted">Loading engines…</p></div>
+
+      <h2>3. Tune the result</h2>
+      <label class="slider">
+        <span>Confidence threshold <output id="threshold-value">30%</output></span>
+        <input type="range" id="threshold" min="0" max="100" step="1" value="30">
+        <small class="muted">Boxes above the threshold are green, the rest red. Changing it does not re-run OCR.</small>
+      </label>
+      <label class="toggle">
+        <input type="checkbox" id="show-unsure" checked>
+        <span>Show low-confidence boxes</span>
+      </label>
+      <label class="toggle">
+        <input type="checkbox" id="to-traditional">
+        <span>Convert Simplified → Traditional <small class="muted">(OpenCC, applies on the next run)</small></span>
+      </label>
+
+      <button type="submit" class="primary" id="run" disabled>Read text</button>
+      <p class="status" id="status" role="status"></p>
+    </form>
+
+    <section class="results" id="results" aria-live="polite">
+      <div class="empty" id="empty">
+        <h2>How it works</h2>
+        <ol class="pipeline">
+          <li><strong>Detection</strong> finds where text is and draws a polygon around each line.</li>
+          <li><strong>Recognition</strong> reads the characters inside every polygon.</li>
+          <li><strong>Post-processing</strong> applies the confidence threshold and sorts lines into reading order.</li>
+        </ol>
+        <p class="muted">Pick a photo and one or more engines. Each engine gets its own panel with the boxes it found,
+          the text it read and how long every stage took.</p>
+      </div>
+    </section>
+  </main>
+
+  <template id="card-template">
+    <article class="card">
+      <header class="card-head">
+        <h3 class="card-title"></h3>
+        <div class="badges"></div>
+      </header>
+      <div class="stage">
+        <img class="stage-image" alt="">
+        <svg class="overlay" preserveAspectRatio="none"></svg>
+        <div class="spinner" hidden><span></span>Reading…</div>
+      </div>
+      <p class="card-error" hidden></p>
+      <ol class="regions"></ol>
+      <footer class="card-foot">
+        <button type="button" class="ghost copy" disabled>Copy text</button>
+        <button type="button" class="ghost download" disabled>Annotated PNG</button>
+      </footer>
+    </article>
+  </template>
+
+  <script src="/static/app.js" type="module"></script>
+</body>
+</html>
