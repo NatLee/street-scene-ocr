@@ -56,11 +56,15 @@ jobs:
       - name: The service answers through Traefik and spreads requests over two containers
         run: |
           docker compose up -d --no-build
-          for i in $(seq 60); do curl -fsS http://localhost:8080/healthz && break; sleep 2; done
-          for i in $(seq 10); do
-            curl -fsS -o /dev/null -D - http://localhost:8080/healthz | grep -i '^x-served-by'
-          done | sort -u | tee served-by.txt
-          test "$(wc -l < served-by.txt)" -ge 2
+          # Traefik adds each replica once it is up, so keep asking until two different containers answer.
+          for i in $(seq 90); do
+            curl -fsS -o /dev/null -D - http://localhost:8080/healthz 2>/dev/null \
+              | grep -i '^x-served-by' | tr -d '\r' | awk '{print $2}' >> served-by.txt || true
+            [ "$(sort -u served-by.txt | wc -l)" -ge 2 ] && break
+            sleep 2
+          done
+          sort served-by.txt | uniq -c
+          test "$(sort -u served-by.txt | wc -l)" -ge 2
           curl -fsS -F file=@eval/data/synthetic/sign-00.jpg -F engine=rapidocr http://localhost:8080/api/ocr \
             | python3 -c "import json,sys; r=json.load(sys.stdin); print(r['text']); assert r['regions']"
       - name: Compose logs on failure
