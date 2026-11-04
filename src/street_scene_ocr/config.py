@@ -32,6 +32,10 @@ DEFAULT_ENGINE = "easyocr"
 DEFAULT_MAX_IMAGE_SIDE = 2560
 
 DEVICES = ("cpu", "cuda", "auto")
+DEFAULT_DEVICE = "cpu"  # GPU is opt-in
+
+DEFAULT_HOST = "0.0.0.0"
+DEFAULT_PORT = 8000
 
 ENV_PREFIX = "OCR_"
 TRUE_WORDS = ("1", "true", "yes", "on")
@@ -82,9 +86,9 @@ class SettingsError(ValueError):
 @dataclass(frozen=True)
 class Settings:
     default_engine: str = DEFAULT_ENGINE
-    # ``None`` means "every engine whose Python package is installed".
+    # ``None`` means every known engine; the ones whose package is missing are listed but cannot read.
     enabled_engines: tuple[str, ...] | None = None
-    device: str = "cpu"
+    device: str = DEFAULT_DEVICE
     min_confidence: float = DEFAULT_MIN_CONFIDENCE
     max_upload_mb: int = DEFAULT_MAX_UPLOAD_MB
     max_image_side: int = DEFAULT_MAX_IMAGE_SIDE
@@ -95,8 +99,8 @@ class Settings:
     to_traditional: bool = False
     # Threads each engine may use for one image; defaults to the CPUs available to this process.
     threads: int = field(default_factory=available_cpus)
-    host: str = "0.0.0.0"
-    port: int = 8000
+    host: str = DEFAULT_HOST
+    port: int = DEFAULT_PORT
     allowed_extensions: tuple[str, ...] = field(default=ALLOWED_EXTENSIONS)
 
     def __post_init__(self) -> None:
@@ -145,7 +149,7 @@ class Settings:
         return cls(
             default_engine=get("DEFAULT_ENGINE") or DEFAULT_ENGINE,
             enabled_engines=tuple(e.strip() for e in engines.split(",") if e.strip()) if engines else None,
-            device=(get("DEVICE") or "cpu").lower(),
+            device=(get("DEVICE") or DEFAULT_DEVICE).lower(),
             min_confidence=number("MIN_CONFIDENCE", float, DEFAULT_MIN_CONFIDENCE),
             max_upload_mb=number("MAX_UPLOAD_MB", int, DEFAULT_MAX_UPLOAD_MB),
             max_image_side=number("MAX_IMAGE_SIDE", int, DEFAULT_MAX_IMAGE_SIDE),
@@ -153,6 +157,6 @@ class Settings:
             font_path=Path(font) if font else DEFAULT_FONT,
             threads=number("THREADS", int, available_cpus()),
             to_traditional=flag("TO_TRADITIONAL"),
-            host=get("HOST") or "0.0.0.0",
-            port=number("PORT", int, 8000),
+            host=get("HOST") or DEFAULT_HOST,
+            port=number("PORT", int, DEFAULT_PORT),
         )
