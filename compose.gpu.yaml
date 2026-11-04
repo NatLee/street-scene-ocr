@@ -1,0 +1,29 @@
+# GPU: build on the PyTorch CUDA image and give the OCR containers the NVIDIA GPU.
+#
+#   docker compose -f compose.yaml -f compose.gpu.yaml up --build
+#
+# Needs the NVIDIA Container Toolkit. Only EasyOCR runs on the GPU; RapidOCR and PaddleOCR use the
+# CPU build of ONNX Runtime and are fast enough there (see eval/README.md).
+
+x-gpu-build: &gpu-build
+  context: .
+  args:
+    BASE_IMAGE: pytorch/pytorch:2.14.1-cuda13.2-cudnn9-runtime
+
+services:
+  models:
+    image: street-scene-ocr:gpu
+    build: *gpu-build
+
+  ocr:
+    image: street-scene-ocr:gpu
+    build: *gpu-build
+    environment:
+      OCR_DEVICE: cuda
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]

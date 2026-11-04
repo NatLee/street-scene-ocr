@@ -1,0 +1,8 @@
+# Only pyproject.toml, README.md, LICENSE, docker/ and src/ go into the image.
+*
+!pyproject.toml
+!README.md
+!LICENSE
+!docker/install-engines.sh
+!src/
+**/__pycache__

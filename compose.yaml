@@ -1,0 +1,58 @@
+# Local demo: Traefik in front of several OCR containers, round-robin.
+#
+#   docker compose up --build             # 2 OCR containers behind http://localhost:8080
+#   OCR_REPLICAS=4 docker compose up -d   # or scale a running stack: docker compose up -d --scale ocr=4
+#
+# Every response carries an X-Served-By header with the container that answered.
+# The Traefik dashboard is on http://localhost:8081. For HTTPS on a real domain, add compose.prod.yaml.
+
+name: street-scene-ocr
+
+services:
+  traefik:
+    image: traefik:v3.7
+    command:
+      - --providers.docker=true
+      - --providers.docker.exposedbydefault=false
+      - --entrypoints.web.address=:80
+      - --api.dashboard=true
+      - --api.insecure=true
+    ports:
+      - "${OCR_HTTP_PORT:-8080}:80"
+      - "${TRAEFIK_DASHBOARD_PORT:-8081}:8080"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    restart: unless-stopped
+
+  # Downloads the models once into the shared volume, so the OCR containers start without racing
+  # each other for the same files.
+  models:
+    image: street-scene-ocr:local
+    build: .
+    command: ["street-scene-ocr", "warmup"]
+    volumes:
+      - models:/models
+
+  ocr:
+    image: street-scene-ocr:local
+    build: .
+    environment:
+      OCR_DEFAULT_ENGINE: ${OCR_DEFAULT_ENGINE:-easyocr}
+      OCR_DEVICE: ${OCR_DEVICE:-cpu}
+    volumes:
+      - models:/models
+    depends_on:
+      models:
+        condition: service_completed_successfully
+    deploy:
+      replicas: ${OCR_REPLICAS:-2}
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.ocr.rule=PathPrefix(`/`)  # any host name; compose.prod.yaml narrows it to your domain
+      - traefik.http.routers.ocr.entrypoints=web
+      - traefik.http.services.ocr.loadbalancer.server.port=8000
+      - traefik.http.services.ocr.loadbalancer.healthcheck.path=/healthz
+    restart: unless-stopped
+
+volumes:
+  models:
